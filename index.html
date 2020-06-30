@@ -27,7 +27,7 @@
                     <li><a href="#"><span class="glyphicon glyphicon-user">&nbsp;</span>Hello Admin</a></li>
                     <li class="active"><a title="View Website" href="#"><span
                                 class="glyphicon glyphicon-globe"></span></a></li>
-                    <li><a href="#">Logout</a></li>
+                    <li><a href="#login" class="modal-trigger">Logout</a></li>
                 </ul>
             </div>
         </nav>
@@ -40,7 +40,38 @@
         </ul>
     </header>
     <main>
+        <div class="modal modalLogin" id="login">
+            <div class="modal-content">
+                <h5 class="indigo-text">Please, login into your account</h5>
+                <div class="row">
+                    <form class="col s12">
+                        <div class='row'>
+                            <div class='input-field col s12'>
+                                <input class='validate' type='email' name='email' id='email' />
+                                <label for='email'>Enter your email</label>
+                            </div>
+                        </div>
 
+                        <div class='row'>
+                            <div class='input-field col s12'>
+                                <input class='validate' type='password' name='password' id='password' />
+                                <label for='password'>Enter your password</label>
+                            </div>
+
+                        </div>
+
+                        <div class='row'>
+                            <button id="submit" type='submit' name='btn_login'
+                                class='col s12 btn btn-large waves-effect indigo' onclick="validate()">Login</button>
+                        </div>
+                    </form>
+                    <span><b class="note">Note : </b>For this demo use following username and password. <br /><b
+                            class="valid">User Name : Formget<br />Password : formget#123</b></span>
+                </div>
+
+
+            </div>
+        </div>
         <div id="modal1" class="modal">
             <div class="modal-content">
                 <h4>Edit Product</h4>
@@ -74,7 +105,7 @@
         </div>
         <div class="container">
             <div id="row" class="row">
-                <h1>sdsd</h1>
+                <h1>Products</h1>
             </div>
         </div>
     </main>
