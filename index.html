@@ -10,48 +10,83 @@
     <!--Import Style-->
     <link rel="stylesheet" href="./css/main.css" />
     <!-- Compiled and minified CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.96.1/css/materialize.min.css">
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+
 
 </head>
 
 <body>
     <header>
         <nav id="main-nav" class="blue-grey">
-            <div class="container">
-                <a href="#" data-activates="slide-out" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
+            <div class="nav-wrapper container">
+                <a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">menu</i></a>
                 <a href="#" class="page-title">Admin Panel</a>
-                <ul class="right">
-                    <div class="collapse navbar-collapse">
-                        <ul class="nav navbar-nav navbar-right">
-                            <li><a href="#"><span class="glyphicon glyphicon-user">&nbsp;</span>Hello Admin</a></li>
-                            <li class="active"><a title="View Website" href="#"><span
-                                        class="glyphicon glyphicon-globe"></span></a></li>
-                            <li><a href="#">Logout</a></li>
-                        </ul>
-                    </div>
+                <ul id="nav-mobile" class="right hide-on-med-and-down">
+                    <li><a href="#"><span class="glyphicon glyphicon-user">&nbsp;</span>Hello Admin</a></li>
+                    <li class="active"><a title="View Website" href="#"><span
+                                class="glyphicon glyphicon-globe"></span></a></li>
+                    <li><a href="#">Logout</a></li>
                 </ul>
             </div>
-            </div>
         </nav>
-        <ul id="slide-out" class="side-nav fixed">
-            <li class="center-align black-text logo"><a>ADMIN&trade;</a></li>
-            <li><a href="#!"><i class="mdi-action-dashboard left"></i>Dashboard</a></li>
-            <li class="active"><a href="#!"><i class="mdi-editor-attach-money left"></i>Products</a></li>
-            <li><a href="#!"><i class="mdi-social-people left"></i>Users</a></li>
 
+        <ul id="slide-out" class="sidenav sidenav-fixed">
+            <li style="height: 64px;" class="center-align black-text logo "><a>ADMIN&trade;</a></li>
+            <li><a href="#!"><i class="material-icons">dashboard</i>Dashboard</a></li>
+            <li class="active"><a href="#!"><i class="material-icons">local_offer</i>Products</a></li>
+            <li><a href="#!"><i class="material-icons">local_grocery_store</i>Orders</a></li>
         </ul>
     </header>
     <main>
+
+        <div id="modal1" class="modal">
+            <div class="modal-content">
+                <h4>Edit Product</h4>
+                <form class="col s12">
+                    <div class="row">
+                        <div class="file-field input-field">
+                            <div class="btn">
+                                <span>File</span>
+                                <input type="file" multiple>
+                            </div>
+                            <div class="file-path-wrapper">
+                                <input class="file-path validate" type="text" placeholder="Upload Product Image">
+                            </div>
+                        </div>
+                        <div class="input-field col s6">
+                            <input placeholder="Enter Product Name" id="product_name" type="text" class="validate">
+                            <label class="active" for="product_name">Name</label>
+                        </div>
+                        <div class="input-field col s6">
+                            <input placeholder="Enter Product Price" id="product_price" type="text" class="validate">
+                            <label class="active" for="product_price">Price</label>
+                        </div>
+
+                    </div>
+
+                </form>
+            </div>
+            <div class="modal-footer">
+                <a href="#!" class="modal-close waves-effect waves-light btn" onclick="edit()">Edit</a>
+            </div>
+        </div>
         <div class="container">
             <div id="row" class="row">
+                <h1>sdsd</h1>
             </div>
         </div>
     </main>
-
-
-    <script src="./js/product.js"></script>
     <!-- Compiled and minified JavaScript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.96.1/js/materialize.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="./js/login.js"></script>
+    <script src="./js/product.js"></script>
+    <script src="./js/main.js"></script>
+    <!-- Compiled and minified JavaScript -->
+
+
 </body>
 
 </html>
