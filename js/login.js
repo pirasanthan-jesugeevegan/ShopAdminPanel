@@ -1,14 +1,14 @@
 var Modalelem;
 var instance;
 var attempt = 3;
-var token
-window.onload = function () {
+var token = getWithExpiry('myKey')
 
+window.onload = function () {
+    //localStorage.clear();
     Modalelem = document.querySelector('.modalLogin');
     instance = M.Modal.init(Modalelem, {
         dismissible: false
     });
-
 
     if (token === '' || token === null || token === undefined) {
         console.log('empty')
@@ -16,10 +16,7 @@ window.onload = function () {
     } else {
         console.log('value is present')
     }
-
 }
-
-
 
 function login() {
 
@@ -39,10 +36,7 @@ function login() {
             console.log(data.message)
             if (request.status >= 200 && request.status < 400) {
                 M.toast({ html: data.message })
-                console.log(token)
-                localStorage.setItem('token', token);
-                //  token1 = localStorage.getItem('token')
-                // console.log(token1)
+                setWithExpiry('myKey', token, 600000)
                 instance.close();
             } else {
                 M.toast({ html: data.message })
@@ -63,4 +57,35 @@ function login() {
             return false;
         }
     }
+}
+
+function setWithExpiry(key, value, ttl) {
+    const now = new Date()
+    // `item` is an object which contains the original value
+    // as well as the time when it's supposed to expire
+    const item = {
+        value: value,
+        expiry: now.getTime() + ttl
+    }
+    localStorage.setItem(key, JSON.stringify(item))
+}
+function getWithExpiry(key) {
+    const itemStr = localStorage.getItem(key)
+
+    // if the item doesn't exist, return null
+    if (!itemStr) {
+        return null
+    }
+
+    const item = JSON.parse(itemStr)
+    const now = new Date()
+
+    // compare the expiry time of the item with the current time
+    if (now.getTime() > item.expiry) {
+        // If the item is expired, delete the item from storage
+        // and return null
+        localStorage.removeItem(key)
+        return null
+    }
+    return item.value
 }
