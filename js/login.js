@@ -5,6 +5,7 @@ var token = getWithExpiry('myKey')
 
 window.onload = function () {
     //localStorage.clear();
+    //localStorage.removeItem('myKey')
     Modalelem = document.querySelector('.modalLogin');
     instance = M.Modal.init(Modalelem, {
         dismissible: false
@@ -13,9 +14,11 @@ window.onload = function () {
     if (token === '' || token === null || token === undefined) {
         console.log('empty')
         instance.open();
+
     } else {
         console.log('value is present')
     }
+
 }
 
 function login() {
@@ -25,7 +28,7 @@ function login() {
     var link = 'https://restful-shop-api.herokuapp.com/user/login';
 
 
-    if (username == "Formget@gmail.com" && password == "formget#123") {
+    if (token === '' || token === null || token === undefined) {
         request.open('POST', link, true)
         request.setRequestHeader("Content-Type", "application/json");
         request.send(JSON.stringify({ "email": "test@test.com", "password": "tester" })); //repace email and testing with dynamic value 
@@ -36,7 +39,8 @@ function login() {
             console.log(data.message)
             if (request.status >= 200 && request.status < 400) {
                 M.toast({ html: data.message })
-                setWithExpiry('myKey', token, 600000)
+                setWithExpiry('myKey', token, 500000) // token expiry value
+
                 instance.close();
             } else {
                 M.toast({ html: data.message })
