@@ -1,5 +1,5 @@
 var request = new XMLHttpRequest();
-var token
+
 var product_ID;
 var link = "";
 
@@ -7,7 +7,6 @@ var link = "";
 // localStorage.setItem("lastname", "Smith");
 // var last = localStorage.getItem("lastname");
 // console.log(last)
-
 
 
 const app = document.getElementById('row');

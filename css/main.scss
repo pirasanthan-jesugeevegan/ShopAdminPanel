@@ -7,8 +7,10 @@ header, main, footer {
       padding-left: 0;
     }
   }
-  
-  .modal-overlay {
-    
-    opacity: 2 !important;
+  .header {
+  display: flex;
+  .btn-floating.btn-large {
+    top: 18px;
+    margin-left: auto;
+  }
 }
